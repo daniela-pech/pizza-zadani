@@ -1,16 +1,16 @@
-import React from 'react';
-import Check from '../Check';
-import type {ITopping} from '../../models/Topping';
-import './style.css';
+import Check from "../Check";
+import type { ITopping } from "../../models/Topping";
+import "./style.css";
 
 interface IToppingProps {
   topping: ITopping;
+  onToggle: () => void;
 }
 
-const Topping IToppingProps = ({ topping }: IToppingProps) => {
+const Topping = ({ topping, onToggle }: IToppingProps) => {
   return (
     <div className="topping">
-      <Check />
+      <Check checked={topping.selected} onChange={onToggle} />
       <span className="topping__content">
         {topping.name}: {topping.price} €
       </span>
